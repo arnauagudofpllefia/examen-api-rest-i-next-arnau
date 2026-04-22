@@ -1,11 +1,13 @@
-import express from 'express';
-import { verMascotas, verMascotaPorId } from '../controllers/mascotasController.js';
+import express from 'express'
+import { verMascotas, verMascotaPorId, crearMascota, actualizarMascota, eliminarMascota } from '../controllers/mascotasController.js'
 
 
-const router = express.Router();
+const router = express.Router()
 
-router.get('/', verMascotas);
-router.get('/:id', verMascotaPorId);
+router.get('/', verMascotas)
+router.get('/:id', verMascotaPorId)
+router.post('/', crearMascota)
+router.put('/:id', actualizarMascota)
+router.delete('/:id', eliminarMascota)
 
-
-export default router;
+export default router
