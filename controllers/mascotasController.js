@@ -54,7 +54,7 @@ export async function actualizarMascota(req, res) {
     try {
         const id = parseInt(req.params.id, 10);
         const { nombre, tipo, raza, foto } = req.body;
-        const mascotaID = mascotas.findIndex((m) => m.id === id);    
+        const mascotaID = mascotas.find((m) => m.id === id);    
 
         const mascotaActualizada = {
             id,
@@ -76,7 +76,7 @@ export async function eliminarMascota(req, res) {
 
     try {
         const id = parseInt(req.params.id, 10);
-        const mascotaID = mascotas.findIndex((m) => m.id === id);
+        const mascotaID = mascotas.find((m) => m.id === id);
 
         mascotas.splice(mascotaID, 1);
         res.status(204).send();
